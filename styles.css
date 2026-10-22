@@ -285,3 +285,16 @@
  .quiz-result-actions{flex-direction:column}
  .quiz-result-actions .button{width:100%}
 }
+
+/* Playful bee-remover interaction */
+.bee-control-wrap{position:fixed;right:18px;bottom:18px;z-index:40;display:flex;flex-direction:column;align-items:flex-end;gap:5px}.bee-control{border:1.5px solid #c78c8b!important;box-shadow:0 5px 18px #71534720;cursor:pointer;white-space:nowrap}.bee-control-note{font:italic 11px/1.3 Georgia,serif;color:#987779;background:#fff9efdb;padding:4px 8px;border-radius:10px}.cat-paw-swipe{position:fixed;z-index:39;top:28%;left:110%;width:min(58vw,620px);pointer-events:none;opacity:0;transform:rotate(-12deg);filter:drop-shadow(0 9px 8px #563a2820)}.cat-paw-swipe img{display:block;width:100%;height:auto}.cat-paw-swipe.swiping{animation:cat-paw-swipe 1.15s cubic-bezier(.2,.75,.25,1) forwards}.drawn-bee.bee-angry:after{background:#f5fbf8;box-shadow:8px 1px 0 -1px #f5fbf8}.drawn-bee.bee-angry:before{background:repeating-linear-gradient(90deg,#f3d37b 0 4px,#5b5144 4px 6px,#f3d37b 6px 10px);box-shadow:0 -5px 0 -3px #b96d69}.drawn-bee.bee-escaping{animation:bee-escape .75s ease-in forwards!important}.bee-cleared .drawn-bee{opacity:0!important;pointer-events:none!important;transition:opacity .3s ease}.bee-cleared .inline-doodles img[src*="bee-doodle"],.bee-cleared .education-doodles img[src*="bee-doodle"],.bee-cleared .footer-creatures img[src*="bee-doodle"]{opacity:0;transition:opacity .3s ease}
+@keyframes cat-paw-swipe{0%{left:110%;opacity:0;transform:rotate(-18deg) translateY(-25px)}12%{opacity:1}55%{left:32%;opacity:1;transform:rotate(5deg) translateY(0)}100%{left:-85%;opacity:0;transform:rotate(15deg) translateY(25px)}}@keyframes bee-escape{to{transform:translate(var(--bee-x,120px),var(--bee-y,-130px)) rotate(55deg) scale(.65);opacity:0}}@media(max-width:560px){.bee-control-wrap{right:10px;bottom:10px}.bee-control{font-size:12px;padding:10px 13px}.bee-control-note{display:none}.cat-paw-swipe{top:36%;width:90vw}}@media(prefers-reduced-motion:reduce){.cat-paw-swipe.swiping{animation:none;left:-100%;opacity:0}.drawn-bee.bee-escaping{opacity:0!important;animation:none!important}}
+
+/* v5: flying bees are smaller and softer to fit the sketchbook palette */
+.drawn-bee{width:clamp(42px,4.6vw,66px)!important;height:auto!important;aspect-ratio:150/112;display:block!important;background:none!important;overflow:visible;opacity:.88}
+.drawn-bee:before,.drawn-bee:after{content:none!important;display:none!important}
+.drawn-bee img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 1px 0 #fff5e5) saturate(.68) brightness(.97);}
+.drawn-bee.bee-angry img{filter:drop-shadow(0 1px 0 #fff5e5) saturate(.78) brightness(.97)}
+.cat-paw-swipe{width:min(68vw,720px)!important;top:20%!important;}
+.cat-paw-swipe img{width:100%;height:auto;}
+@media(max-width:560px){.drawn-bee{width:40px!important}.cat-paw-swipe{top:30%!important;width:105vw!important}}

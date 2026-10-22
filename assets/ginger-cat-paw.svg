@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 720" fill="none">
+<defs>
+ <linearGradient id="fur" x1=".15" y1=".1" x2=".85" y2=".95"><stop stop-color="#f8c889"/><stop offset=".4" stop-color="#e9954c"/><stop offset=".78" stop-color="#d47b36"/><stop offset="1" stop-color="#b96530"/></linearGradient>
+ <linearGradient id="cream" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fff0d9"/><stop offset="1" stop-color="#e9c6a0"/></linearGradient>
+ <filter id="soft"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<!-- long foreleg, clearly connected to paw -->
+<path d="M635 -45 C680 78 636 179 587 273 C550 344 521 392 492 452 C470 497 453 526 418 550 C386 572 346 573 313 554 C276 533 259 499 276 464 C296 425 331 400 349 359 C376 297 389 234 417 166 C451 83 470 17 467 -45Z" fill="#9b5b36" opacity=".16" filter="url(#soft)"/>
+<path d="M595 -70 C653 66 600 173 551 267 C516 334 486 382 459 436 C436 481 415 514 382 538 C351 561 311 559 280 539 C248 519 234 488 250 455 C269 418 300 393 318 354 C345 294 358 231 386 164 C420 83 439 7 434 -70Z" fill="url(#fur)" stroke="#92522f" stroke-width="8" stroke-linejoin="round"/>
+<!-- orange tabby stripes down the leg -->
+<g stroke="#b96932" stroke-width="20" stroke-linecap="round" opacity=".8"><path d="M468 35 Q520 59 575 38"/><path d="M449 105 Q500 130 558 103"/><path d="M423 176 Q474 202 531 172"/><path d="M394 248 Q446 270 504 239"/><path d="M365 319 Q418 341 476 310"/><path d="M333 387 Q384 407 447 375"/></g>
+<g stroke="#fbd7a4" stroke-width="5" stroke-linecap="round" opacity=".9"><path d="M490 24l-16 23 M535 81l-13 19 M459 145l-15 23 M490 211l-14 20 M421 282l-14 21 M443 347l-13 19 M367 414l-10 16"/></g>
+<!-- unmistakable paw wrist and four toes -->
+<path d="M279 437 C246 424 218 443 203 472 C184 508 202 548 236 569 C266 588 303 583 326 562 C348 587 390 590 415 565 C441 540 437 506 415 481 C393 457 365 451 342 464 C325 442 301 432 279 437Z" fill="url(#fur)" stroke="#92522f" stroke-width="8"/>
+<path d="M205 486 C183 508 196 544 225 559 C248 571 273 558 282 537 C290 515 275 487 253 478 C233 470 217 476 205 486Z" fill="url(#cream)" stroke="#92522f" stroke-width="6"/>
+<path d="M267 493 C246 517 259 552 287 565 C313 577 339 562 344 537 C350 512 329 485 304 481 C290 479 277 484 267 493Z" fill="url(#cream)" stroke="#92522f" stroke-width="6"/>
+<path d="M333 497 C315 521 330 554 357 562 C382 569 405 550 404 526 C403 502 382 481 359 482 C348 482 339 487 333 497Z" fill="url(#cream)" stroke="#92522f" stroke-width="6"/>
+<!-- fur tufts and toe creases -->
+<g stroke="#a96334" stroke-width="5" stroke-linecap="round"><path d="M255 457l-10 16 M285 449l-6 15 M325 454l-4 13 M368 464l5 12"/><path d="M275 541q9 8 17 5 M340 542q8 8 17 4"/></g>
+<g stroke="#f8d6a5" stroke-width="4" stroke-linecap="round"><path d="M470 66l-13 20 M445 126l-13 19 M418 202l-13 18 M389 270l-12 18 M359 340l-11 16 M327 405l-9 13 M225 505l-7 11 M290 514l-4 11 M356 515l1 11"/></g>
+</svg>

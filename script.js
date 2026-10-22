@@ -60,7 +60,7 @@ if (grid) {
     rat: {name:'Крыска-хитрюга', image:'assets/doodle-rat.svg', tagline:'Есть план, запасной план и сыр на чёрный день. Никому не говори, где сыр.', description:'Ты умеешь замечать возможности там, где остальные видят тупик. Пока все пытаются решить задачу в лоб, ты уже нашёл обходной путь, полезный контакт и скидку. Это не хитрость. Это оптимизация жизненных процессов.', traits:['находчивость','стратегия','запасной план']}
   };
   const questions = [
-    {q:'Ты зашёл в комнату и забыл зачем. Что дальше?',a:[['cat','Выйти и зайти снова. Научный метод.'],['frog','Постоя́ть, вдруг воспоминание загрузится.'],['rat','Найти что-нибудь другое и объявить это целью.'],['duck','Принять, что у мозга сегодня выходной.']]},
+    {q:'Ты зашёл в комнату и забыл зачем. Что дальше?',a:[['cat','Выйти и зайти снова. Научный метод.'],['frog','Постоять, вдруг воспоминание загрузится.'],['rat','Найти что-нибудь другое и объявить это целью.'],['duck','Принять, что у мозга сегодня выходной.']]},
     {q:'Внезапно освободился целый день. Что дальше?',a:[['bee','Составить грандиозный план и устать уже на первом пункте.'],['mushroom','Устроить себе маленькую жизнь без обязательств.'],['frog','Разобраться с мыслями, которые открыты с 2019 года.'],['cat','Найти занятие, которого вообще не было в планах.']]},
     {q:'Как выглядит борьба с хаосом?',a:[['cat','Хаос временно переименован в творческий процесс.'],['frog','Это интересный эксперимент. Наблюдаем.'],['bee','Всё под контролем. Контроль, правда, ничего не контролирует.'],['rat','Найти сыр. Остальное неважно.']]},
     {q:'Какой супернавык пригодился бы в жизни?',a:[['bee','Успевать всё и не выгорать.'],['frog','Отключать поток мыслей по кнопке.'],['mushroom','Телепортироваться домой, когда социальная батарейка села.'],['rat','Находить выход из любой ситуации и иногда даже получать выгоду.']]},
@@ -130,4 +130,14 @@ ${location.href}`;
     }
     await copyResult();
   });
+})();
+
+// A tiny bit of sketchbook chaos: grumpy bees, then a big ginger paw.
+(() => {
+ const button=document.querySelector('#bee-control'); const paw=document.querySelector('#cat-paw-swipe'); if(!button||!paw)return; let cleared=false; let timer;
+ const bees=[...document.querySelectorAll('.drawn-bee')];
+ button.addEventListener('click',()=>{clearTimeout(timer);cleared=!cleared;document.body.classList.toggle('bee-cleared',cleared);button.setAttribute('aria-pressed',String(cleared));button.textContent=cleared?'🐝 Вернуть пчёлок':'🐝 Убрать пчёлок';
+ if(cleared){bees.forEach((bee,i)=>{bee.classList.remove('bee-escaping');bee.classList.add('bee-angry');bee.style.setProperty('--bee-x',`${i%2?'-':'+'}${120+Math.random()*180}px`);bee.style.setProperty('--bee-y',`${i%2?'-':'+'}${80+Math.random()*130}px`);});void paw.offsetWidth;paw.classList.remove('swiping');void paw.offsetWidth;paw.classList.add('swiping');timer=setTimeout(()=>bees.forEach(bee=>bee.classList.add('bee-escaping')),390);}
+ else{paw.classList.remove('swiping');bees.forEach(bee=>{bee.classList.remove('bee-angry','bee-escaping');bee.style.removeProperty('--bee-x');bee.style.removeProperty('--bee-y');});}
+ });
 })();
