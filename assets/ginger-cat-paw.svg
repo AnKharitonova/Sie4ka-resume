@@ -14,7 +14,9 @@
 <path d="M279 437 C246 424 218 443 203 472 C184 508 202 548 236 569 C266 588 303 583 326 562 C348 587 390 590 415 565 C441 540 437 506 415 481 C393 457 365 451 342 464 C325 442 301 432 279 437Z" fill="url(#fur)" stroke="#92522f" stroke-width="8"/>
 <path d="M205 486 C183 508 196 544 225 559 C248 571 273 558 282 537 C290 515 275 487 253 478 C233 470 217 476 205 486Z" fill="url(#cream)" stroke="#92522f" stroke-width="6"/>
 <path d="M267 493 C246 517 259 552 287 565 C313 577 339 562 344 537 C350 512 329 485 304 481 C290 479 277 484 267 493Z" fill="url(#cream)" stroke="#92522f" stroke-width="6"/>
-<path d="M333 497 C315 521 330 554 357 562 C382 569 405 550 404 526 C403 502 382 481 359 482 C348 482 339 487 333 497Z" fill="url(#cream)" stroke="#92522f" stroke-width="6"/>
+<path d="M321 497 C303 521 317 552 342 560 C366 567 385 549 385 526 C384 502 365 483 345 482 C334 482 326 487 321 497Z" fill="url(#cream)" stroke="#92522f" stroke-width="6"/>
+<!-- fourth distinct cream toe on the outer edge -->
+<path d="M365 488 C351 503 356 529 373 544 C389 558 407 551 414 535 C421 518 411 497 396 488 C384 481 373 481 365 488Z" fill="url(#cream)" stroke="#92522f" stroke-width="6"/>
 <!-- fur tufts and toe creases -->
 <g stroke="#a96334" stroke-width="5" stroke-linecap="round"><path d="M255 457l-10 16 M285 449l-6 15 M325 454l-4 13 M368 464l5 12"/><path d="M275 541q9 8 17 5 M340 542q8 8 17 4"/></g>
 <g stroke="#f8d6a5" stroke-width="4" stroke-linecap="round"><path d="M470 66l-13 20 M445 126l-13 19 M418 202l-13 18 M389 270l-12 18 M359 340l-11 16 M327 405l-9 13 M225 505l-7 11 M290 514l-4 11 M356 515l1 11"/></g>
