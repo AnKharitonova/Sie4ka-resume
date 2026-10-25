@@ -20,7 +20,13 @@ const memes = [
  {image:'assets/meme-armor.jpg',title:'Первое и девятое января',caption:'Новый год: прошло всего восемь дней, а разница уже заметна.',tag:'сезонное'},
  {image:'assets/meme-sun-cat.jpeg',title:'На носу уже Новый год',caption:'Ёлка уже всё знает.',tag:'сезонное'},
  {image:'assets/meme-cooking.jpg',title:'С завтрашнего дня — режим',caption:'Ну, с завтрашнего дня точно войду в режим. Сегодня — только моральная подготовка.',tag:'самоорганизация'},
- {image:'assets/meme-cookie.jpeg',title:'Зря вы доверили мне готовку',caption:'«Я думала, мы снова занимаемся страшным мошенничеством» — кулинарный подход, который никто не просил.',tag:'эксперименты'}
+ {image:'assets/meme-cookie.jpeg',title:'Зря вы доверили мне готовку',caption:'«Я думала, мы снова занимаемся страшным мошенничеством» — кулинарный подход, который никто не просил.',tag:'эксперименты'},
+ {image:'assets/meme-jelly-factory.png',title:'Желейная фабрика',caption:'Когда рабочий день закончился, а ты всё ещё пытаешься дозвониться до отпуска.',tag:'рабочие будни'},
+ {image:'assets/meme-yyy.png',title:'ЫЫЫ',caption:'Звуковое сопровождение момента, когда объяснять уже бесполезно.',tag:'настроение'},
+ {image:'assets/meme-lost-in-the-area.jpg',secondImage:'assets/meme-sheep-kazakhstan.jpg',title:'Я знаю этот район',caption:'Я: мне не нужны карты, я тут всё знаю. Я через три минуты: блин, а где я вообще.',tag:'ориентирование'},
+ {image:'assets/meme-panda-cat.jpg',title:'Ошибка распознавания',caption:'Когда даже указатели не уверены, кто ты сегодня.',tag:'котики'},
+ {image:'assets/meme-trial-and-error.jpeg',title:'Методом проб и ошибок',caption:'Я научился пробовать и ошибаться. Уже неплохо.',tag:'саморазвитие'},
+ {image:'assets/meme-last-nerve.jpg',title:'Это мой последний нерв',caption:'Когда терпение закончилось, а день почему-то ещё нет.',tag:'состояние'}
 ];
 const grid = document.querySelector('#meme-grid');
 if (grid) {
