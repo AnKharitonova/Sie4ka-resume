@@ -383,3 +383,9 @@
   .personal-world:after{top:39px;right:15px;font-size:10px}
   .personal-world .section-heading{padding-right:0}
 }
+
+/* Tiny sketchbook animals replace generic UI-like decorative glyphs */
+.fact-animal{width:25px;height:25px;object-fit:contain;vertical-align:middle;margin-right:4px;transform:rotate(-5deg)}
+.animal-sticker{display:flex;align-items:center;justify-content:center;background:#fff9ed;border:1px dashed #d7b9a8;border-radius:45% 55% 48% 52%;padding:5px}
+.animal-sticker img{width:42px;height:42px;object-fit:contain}
+.footer-friends{max-width:100%;height:auto}
