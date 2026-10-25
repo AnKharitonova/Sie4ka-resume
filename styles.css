@@ -383,3 +383,57 @@
   .personal-world:after{top:39px;right:15px;font-size:10px}
   .personal-world .section-heading{padding-right:0}
 }
+
+/* Final responsive sketchbook treatment for the personal-world page */
+.personal-world.section-block{
+  width:min(1060px, calc(100% - 32px));
+  margin:28px auto 42px;
+  padding:clamp(22px,3.5vw,42px);
+  position:relative;
+  isolation:isolate;
+  background-color:#fbf6ed;
+  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,#d9c9b51c 30px),radial-gradient(circle at 8% 8%,#f4e3e8 0,transparent 24%),radial-gradient(circle at 94% 90%,#e6ecd9 0,transparent 25%);
+  border:1px solid #d9cbb8;
+  border-radius:4px 18px 6px 16px;
+  box-shadow:4px 5px 0 #e5d9c8a6, 0 12px 26px #6b58430b;
+}
+.personal-world .section-kicker{font-family:'DM Sans',sans-serif;letter-spacing:.09em;color:#a36e73}
+.personal-world .section-heading h2{font-family:'Playfair Display',Georgia,serif}
+.personal-world .world-intro{max-width:650px;font-size:15px;line-height:1.75}
+.personal-world .world-layout{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:clamp(18px,3vw,30px)}
+.personal-world .world-value{min-width:0;background:#fffaf3e8;border:1px dashed #d8c8b6;border-radius:5px 13px 5px 12px;box-shadow:2px 3px 0 #e8ddce;}
+.personal-world .world-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 13px;min-width:0;align-items:start}
+.personal-world .world-photo{min-width:0;width:100%;padding:6px 6px 8px;background:#fffdf8;border:1px solid #e0d4c3;border-radius:2px;box-shadow:3px 4px 0 #e5d8c7a8,0 5px 12px #5b49350d}
+.personal-world .world-photo img{width:100%;height:clamp(125px,15vw,190px);object-fit:cover;display:block}
+.personal-world .world-photo figcaption{font-size:clamp(10px,.9vw,12px);line-height:1.45;padding:7px 4px 1px;overflow-wrap:anywhere}
+.personal-world .world-note{font-size:14px}
+@media(max-width:850px){
+ .personal-world.section-block{width:calc(100% - 28px);padding:25px 22px}
+ .personal-world .world-layout{grid-template-columns:1fr;gap:20px}
+ .personal-world .world-values{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+ .personal-world .world-value{grid-template-columns:1fr;padding:15px 12px}
+ .personal-world .world-value h3{font-size:15px}
+ .personal-world .world-value p{font-size:12px;line-height:1.6}
+ .personal-world .world-photo img{height:clamp(130px,22vw,185px)}
+}
+@media(max-width:560px){
+ .personal-world.section-block{width:calc(100% - 20px);margin:18px auto 28px;padding:24px 14px 22px;border-radius:4px 13px 5px 12px}
+ .personal-world:before{top:8px;right:13px;font-size:22px}
+ .personal-world:after{top:33px;right:12px;font-size:9px}
+ .personal-world .section-heading{padding-right:0;margin-bottom:18px}
+ .personal-world .section-heading h2{font-size:clamp(29px,8vw,36px);max-width:100%}
+ .personal-world .world-intro{font-size:13px;line-height:1.65;margin-top:10px}
+ .personal-world .world-values{grid-template-columns:1fr;gap:11px}
+ .personal-world .world-value{grid-template-columns:34px minmax(0,1fr);gap:10px;padding:13px 12px}
+ .personal-world .world-icon{width:31px;height:31px;font-size:18px}
+ .personal-world .world-value h3{font-size:16px;margin:1px 0 5px}
+ .personal-world .world-value p{font-size:12px}
+ .personal-world .world-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .personal-world .world-photo{padding:4px 4px 6px}
+ .personal-world .world-photo img{height:clamp(100px,32vw,145px);object-fit:cover}
+ .personal-world .world-photo figcaption{font-size:10px;line-height:1.4;padding:6px 3px 0}
+ .personal-world .world-photo:nth-child(n){margin-top:0}
+ .personal-world .world-photo:nth-child(2n){transform:rotate(1deg)}
+ .personal-world .world-photo:nth-child(2n+1){transform:rotate(-.8deg)}
+ .personal-world .world-note{font-size:12px;margin-top:20px;padding:4px 8px}
+}
