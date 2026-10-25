@@ -298,3 +298,88 @@
 .cat-paw-swipe{width:min(68vw,720px)!important;top:20%!important;}
 .cat-paw-swipe img{width:100%;height:auto;}
 @media(max-width:560px){.drawn-bee{width:40px!important}.cat-paw-swipe{top:30%!important;width:105vw!important}}
+
+
+/* Personal world: a quieter, photo-led section between the CV and experience */
+.personal-world{position:relative}
+.world-intro{max-width:760px;color:var(--muted);font-size:16px;line-height:1.8;margin:14px 0 0}
+.world-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;align-items:start}
+.world-values{display:grid;gap:13px}
+.world-value{display:grid;grid-template-columns:42px 1fr;gap:13px;padding:18px 17px;background:#fffaf3;border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow)}
+.world-icon{display:grid;place-items:center;width:39px;height:39px;border-radius:50%;background:var(--pink2);color:#a36e73;font-size:22px}
+.world-value:nth-child(2) .world-icon{background:#f4e8d3;color:#9b7a45}
+.world-value:nth-child(3) .world-icon{background:#e8eee1;color:#718265}
+.world-value h3{font:600 18px/1.3 'Playfair Display',serif;margin:2px 0 7px}
+.world-value p{font-size:13px;line-height:1.7;color:#66695e;margin:0}
+.world-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;align-items:start}
+.world-photo{margin:0;padding:7px 7px 10px;background:#fffdf8;border:1px solid #e7dac8;box-shadow:0 8px 22px #55453218;border-radius:4px;transform:rotate(-1deg)}
+.world-photo:nth-child(2){transform:rotate(1.5deg);margin-top:24px}
+.world-photo:nth-child(3){transform:rotate(1deg);margin-top:-8px}
+.world-photo:nth-child(4){transform:rotate(-1.5deg);margin-top:10px}
+.world-photo:nth-child(5){transform:rotate(1deg);margin-top:-7px}
+.world-photo img{display:block;width:100%;height:230px;object-fit:cover;border-radius:2px;background:#f0e8db}
+.world-road img{object-position:center 60%}.world-night img{object-position:center 42%}.world-lights img{object-position:center 52%}.world-cat-outdoors img{object-position:center 62%}.world-cat-window img{object-position:center 55%}
+.world-photo figcaption{padding:9px 5px 1px;font:italic 12px/1.5 'Playfair Display',serif;color:#83736b}
+.world-note{text-align:center;margin:25px 0 0;color:#a36e73;font:italic 15px 'Playfair Display',serif}
+@media(max-width:850px){.world-layout{grid-template-columns:1fr}.world-values{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.world-value{grid-template-columns:1fr;padding:15px}.world-value h3{font-size:16px}}
+@media(max-width:560px){.world-values{grid-template-columns:1fr}.world-value{grid-template-columns:38px 1fr;padding:15px}.world-photo-grid{gap:10px}.world-photo{padding:5px 5px 8px}.world-photo img{height:190px}.world-photo figcaption{font-size:11px}.world-photo:nth-child(2){margin-top:15px}}
+
+
+
+/* Personal-world section: make it feel like pages from the same hand-drawn sketchbook */
+.personal-world{
+  padding:clamp(28px,4vw,54px);
+  background:
+    radial-gradient(ellipse at 8% 6%, #f4e6ed8c 0, transparent 24%),
+    radial-gradient(ellipse at 95% 92%, #e9efdf9c 0, transparent 25%),
+    repeating-linear-gradient(0deg, transparent 0 27px, #d9c9b51b 28px 29px),
+    #fbf6ed;
+  border:1px solid #e5d7c5;
+  border-radius:5px 18px 7px 20px;
+  box-shadow:4px 7px 0 #e8dccb66, 0 12px 30px #62513b0c;
+}
+.personal-world:before{
+  content:"✿";
+  position:absolute;top:13px;right:24px;
+  font-size:27px;color:#c78f9b;opacity:.8;
+  transform:rotate(12deg);pointer-events:none;
+}
+.personal-world:after{
+  content:"заметки на полях";
+  position:absolute;right:30px;top:48px;
+  font:italic 11px/1.2 'Playfair Display',Georgia,serif;
+  color:#a47f83;transform:rotate(4deg);pointer-events:none;
+}
+.personal-world .section-heading{position:relative;padding-right:95px}
+.world-value{
+  position:relative;border-style:dashed;border-radius:5px 15px 6px 14px;
+  box-shadow:2px 4px 0 #e6d8c6a3;
+}
+.world-value:nth-child(1){transform:rotate(-.35deg)}
+.world-value:nth-child(2){transform:rotate(.35deg)}
+.world-value:nth-child(3){transform:rotate(-.2deg)}
+.world-value:after{
+  content:"";position:absolute;top:-6px;left:22px;width:42px;height:12px;
+  background:#e7c6c8b8;transform:rotate(-4deg);border-radius:2px;
+}
+.world-value:nth-child(2):after{background:#e6d4a9c9;left:auto;right:25px;transform:rotate(3deg)}
+.world-value:nth-child(3):after{background:#cdd8bdc9;left:48%;transform:rotate(2deg)}
+.world-photo{
+  position:relative;border-radius:2px 3px 1px 4px;
+  box-shadow:3px 6px 0 #e5d7c5a8, 0 8px 20px #55453218;
+}
+.world-photo:before{
+  content:"";position:absolute;z-index:2;top:-7px;left:calc(50% - 24px);
+  width:48px;height:14px;background:#e9d4a6c9;transform:rotate(-3deg);
+}
+.world-photo:nth-child(2):before{background:#d9c9e6c9;transform:rotate(4deg)}
+.world-photo:nth-child(3):before{background:#d9e4cfcc;transform:rotate(-2deg)}
+.world-photo:nth-child(4):before{background:#e8c8c9cc;transform:rotate(3deg)}
+.world-photo:nth-child(5):before{background:#d9c9e6c9;transform:rotate(-4deg)}
+.world-photo img{border-radius:1px}
+.world-note{position:relative;display:table;margin:28px auto 0;padding:5px 14px 7px;border-bottom:1px dashed #caa4a2;transform:rotate(-1deg)}
+@media(max-width:560px){
+  .personal-world{padding:24px 16px 30px}
+  .personal-world:after{top:39px;right:15px;font-size:10px}
+  .personal-world .section-heading{padding-right:0}
+}
