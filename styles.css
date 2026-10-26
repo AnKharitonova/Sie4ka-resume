@@ -324,23 +324,525 @@
 @media(max-width:850px){.world-layout{grid-template-columns:1fr}.world-values{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.world-value{grid-template-columns:1fr;padding:15px}.world-value h3{font-size:16px}}
 @media(max-width:560px){.world-values{grid-template-columns:1fr}.world-value{grid-template-columns:38px 1fr;padding:15px}.world-photo-grid{gap:10px}.world-photo{padding:5px 5px 8px}.world-photo img{height:190px}.world-photo figcaption{font-size:11px}.world-photo:nth-child(2){margin-top:15px}}
 
-/* Музыкальная история — разворот скетчбука */
-.music-history-section{position:relative;isolation:isolate}
-.music-intro{max-width:680px;color:var(--muted,#6f7166);line-height:1.7}
-.music-timeline{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.2vw,26px);align-items:start;margin-top:clamp(22px,4vw,42px)}
-.music-timeline:before{content:"";position:absolute;left:50%;top:8px;bottom:8px;border-left:2px dashed rgba(131,145,113,.35);z-index:-1}
-.music-note{position:relative;min-width:0;padding:clamp(17px,2.5vw,27px);background:rgba(255,253,244,.88);border:1px solid rgba(151,133,98,.28);border-radius:5px 13px 6px 12px;box-shadow:3px 5px 0 rgba(128,112,81,.08),inset 0 0 0 4px rgba(255,255,255,.4);transform:rotate(-.35deg)}
-.music-note:nth-child(even){transform:rotate(.45deg);background:rgba(250,248,235,.94)}
-.music-note-wide{grid-column:1/-1;width:min(100%,820px);justify-self:center}
-.music-note-featured{border-color:rgba(188,123,99,.45);background:rgba(255,247,236,.94)}
-.music-note-now{background:rgba(242,246,232,.92)}
-.music-age{display:inline-block;max-width:100%;font-size:.76rem;letter-spacing:.04em;color:#7d8069;background:#e9ebd9;padding:5px 10px;border-radius:3px 8px 4px 7px;margin-bottom:12px}
-.music-note h3{font-family:var(--heading-font,Georgia,serif);font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.2;margin:0 0 10px;color:var(--ink,#34372f)}
-.music-note p{font-size:clamp(.91rem,1.25vw,1rem);line-height:1.75;margin:0 0 10px;overflow-wrap:anywhere}
-.music-note p:last-of-type{margin-bottom:0}
-.music-tape{position:absolute;top:-7px;right:22px;width:58px;height:15px;background:rgba(219,184,139,.45);transform:rotate(3deg);border-left:1px dashed rgba(143,111,78,.22);border-right:1px dashed rgba(143,111,78,.22)}
-.music-margin-note{display:block;margin-top:14px;text-align:right;color:#a16e58;font-size:.83rem;font-style:italic}
-.music-footnote{font-size:.85rem;line-height:1.65;color:var(--muted,#6f7166);text-align:center;margin:22px auto 0;max-width:620px}
-@media(max-width:700px){.music-timeline{grid-template-columns:minmax(0,1fr);gap:16px;margin-top:22px}.music-timeline:before{left:10px;top:4px;bottom:4px}.music-note,.music-note:nth-child(even),.music-note-wide{grid-column:1;width:calc(100% - 14px);justify-self:end;transform:none;padding:17px 16px 18px}.music-note h3{font-size:1.2rem}.music-note p{font-size:.94rem;line-height:1.68}.music-tape{right:17px;width:46px}.music-age{font-size:.72rem}.music-margin-note{text-align:left}.music-intro{font-size:.95rem}}
-@media(max-width:380px){.music-note,.music-note:nth-child(even),.music-note-wide{padding:15px 13px}.music-note h3{font-size:1.1rem}.music-note p{font-size:.9rem}.music-tape{width:38px;right:12px}}
 
+/* Музыкальная история — личный скетчбук */
+
+.music-history-section {
+  position: relative;
+  isolation: isolate;
+  padding-top: clamp(45px, 7vw, 82px);
+  padding-bottom: clamp(45px, 7vw, 82px);
+  overflow: clip;
+}
+
+.music-history-section .section-heading {
+  max-width: 800px;
+  margin-bottom: 36px;
+}
+
+.music-history-section .section-heading::after {
+  content: "♫  ♪";
+  display: block;
+  width: fit-content;
+  margin: 15px 0 0 8px;
+  color: #c38e96;
+  font: italic 24px/1.2 "Playfair Display", Georgia, serif;
+  transform: rotate(-8deg);
+}
+
+.music-intro {
+  max-width: 680px;
+  margin-top: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* Каждая запись получает собственное место на развороте */
+
+.music-timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 30px 34px;
+  align-items: start;
+  margin-top: 42px;
+}
+
+/* Убираем прежнюю центральную линию: теперь это свободная раскладка */
+.music-timeline::before {
+  content: none;
+}
+
+.music-note {
+  --note-paper: #fffaf0;
+  --note-edge: #e6d6bf;
+  position: relative;
+  min-width: 0;
+  padding: 28px 25px 25px;
+  overflow: visible;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 31px,
+      rgba(173, 174, 151, .12) 32px,
+      transparent 33px
+    ),
+    var(--note-paper);
+  border: 1px solid var(--note-edge);
+  border-radius: 3px 5px 4px 3px;
+  box-shadow: 3px 5px 0 rgba(128, 112, 81, .07);
+  transform: rotate(-1.2deg);
+}
+
+/* Маленькие следы бумаги и скетчбука */
+.music-note::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: rgba(211, 155, 157, .28);
+  pointer-events: none;
+}
+
+.music-note:nth-child(even) {
+  transform: rotate(1.1deg);
+  background-color: #f8f3e7;
+}
+
+.music-note:nth-child(3n) {
+  border-radius: 7px 3px 5px 4px;
+}
+
+.music-note-wide {
+  grid-column: 1 / -1;
+  width: min(100%, 850px);
+  justify-self: center;
+}
+
+/* Детство — первая широкая запись */
+.music-note:first-child {
+  width: min(100%, 760px);
+  justify-self: start;
+  margin-left: 3%;
+  padding-right: 35px;
+  background-color: #f9f0e6;
+  transform: rotate(.7deg);
+}
+
+.music-note:first-child::before {
+  content: "из домашнего архива";
+  position: absolute;
+  right: 22px;
+  bottom: 15px;
+  color: #b58c79;
+  font: italic 11px "Playfair Display", Georgia, serif;
+  transform: rotate(-4deg);
+}
+
+/* Подростковая запись — компактная, как вырезка */
+.music-note:nth-child(2) {
+  width: 92%;
+  justify-self: end;
+  margin-top: 12px;
+  padding-top: 31px;
+  background-color: #edf1e6;
+  border-color: #d6dfca;
+  transform: rotate(1.7deg);
+}
+
+/* Главный разворот: прогулки и музыка */
+.music-note-featured {
+  --note-paper: #fff5e9;
+  position: relative;
+  width: 94%;
+  justify-self: start;
+  margin: 8px 0 0 2%;
+  padding: 36px clamp(23px, 4vw, 45px) 32px;
+  background:
+    radial-gradient(ellipse at 94% 12%, rgba(231, 184, 188, .22), transparent 30%),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 34px,
+      rgba(184, 159, 128, .13) 35px,
+      transparent 36px
+    ),
+    #fff7eb;
+  border: 1px solid #e5cdb7;
+  border-radius: 4px 12px 5px 9px;
+  box-shadow: 5px 7px 0 rgba(128, 112, 81, .08);
+  transform: rotate(-.5deg);
+}
+
+.music-note-featured::before {
+  content: "✳";
+  position: absolute;
+  top: 15px;
+  right: 22px;
+  color: #d6a2a3;
+  font-size: 29px;
+  transform: rotate(12deg);
+}
+
+/* Попса и период музыкальных открытий */
+.music-note:nth-child(4) {
+  width: 93%;
+  justify-self: start;
+  margin-top: 10px;
+  background-color: #f6e9e9;
+  border-color: #e7cdce;
+  transform: rotate(-1.6deg);
+}
+
+.music-note:nth-child(5) {
+  width: 90%;
+  justify-self: end;
+  margin-top: 35px;
+  background-color: #eee8f2;
+  border-color: #dcd0e4;
+  transform: rotate(1.4deg);
+}
+
+/* Небольшие кусочки бумажного скотча */
+.music-tape {
+  position: absolute;
+  z-index: 2;
+  top: -9px;
+  right: 27px;
+  width: 67px;
+  height: 21px;
+  background: rgba(222, 191, 143, .62);
+  border-left: 1px dashed rgba(143, 111, 78, .24);
+  border-right: 1px dashed rgba(143, 111, 78, .24);
+  transform: rotate(3deg);
+  box-shadow: 0 2px 3px rgba(95, 75, 51, .05);
+}
+
+.music-note:nth-child(even) .music-tape {
+  right: auto;
+  left: 26px;
+  background: rgba(220, 185, 194, .58);
+  transform: rotate(-4deg);
+}
+
+.music-note-featured .music-tape {
+  right: 55px;
+  width: 82px;
+  height: 23px;
+  background: rgba(216, 191, 143, .55);
+  transform: rotate(-2deg);
+}
+
+/* Заголовки и подписи */
+.music-age {
+  display: inline-block;
+  max-width: calc(100% - 35px);
+  margin-bottom: 15px;
+  padding: 4px 10px;
+  color: #77785f;
+  background: #e8ead9;
+  border-radius: 2px 7px 3px 6px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .035em;
+  line-height: 1.5;
+}
+
+.music-note:nth-child(4) .music-age {
+  background: #f0dada;
+  color: #956b70;
+}
+
+.music-note:nth-child(5) .music-age {
+  background: #e5dcec;
+  color: #7d6b8c;
+}
+
+.music-note h3 {
+  margin: 0 0 13px;
+  color: var(--ink);
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  line-height: 1.28;
+}
+
+.music-note-featured h3 {
+  max-width: 620px;
+  font-size: clamp(1.55rem, 3vw, 2.15rem);
+}
+
+.music-note p {
+  margin: 0 0 12px;
+  font-size: .96rem;
+  line-height: 1.85;
+  overflow-wrap: anywhere;
+}
+
+.music-note p:last-of-type {
+  margin-bottom: 0;
+}
+
+.music-margin-note {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 17px 0 0 auto;
+  padding: 4px 8px;
+  color: #a16e75;
+  font: italic .85rem/1.5 "Playfair Display", Georgia, serif;
+  transform: rotate(-2deg);
+}
+
+.music-note-featured .music-margin-note {
+  margin-top: 21px;
+  margin-right: 3%;
+  font-size: .92rem;
+}
+
+/* Последняя страница — возвращение к старым любимчикам */
+.music-note-now {
+  width: min(100%, 790px);
+  justify-self: end;
+  margin: 5px 3% 0 0;
+  padding: 33px 30px 29px;
+  background:
+    radial-gradient(ellipse at 5% 95%, rgba(220, 228, 211, .5), transparent 36%),
+    #f0f3e9;
+  border-color: #d5dfcb;
+  transform: rotate(.6deg);
+}
+
+.music-note-now .music-age {
+  background: #dce6d2;
+  color: #65775c;
+}
+
+.music-note-now::before {
+  content: "конец страницы… пока";
+  position: absolute;
+  right: 22px;
+  top: -19px;
+  color: #8b9a7d;
+  font: italic 12px "Playfair Display", Georgia, serif;
+  transform: rotate(4deg);
+}
+
+.music-footnote {
+  max-width: 620px;
+  margin: 34px auto 0;
+  padding: 13px 16px;
+  color: var(--muted);
+  border-top: 1px dashed #d8c7b4;
+  text-align: center;
+  font: italic .9rem/1.8 "Playfair Display", Georgia, serif;
+}
+
+/* Планшеты */
+@media (max-width: 800px) {
+  .music-timeline {
+    gap: 25px 20px;
+    margin-top: 30px;
+  }
+
+  .music-note {
+    padding: 25px 20px 22px;
+  }
+
+  .music-note:first-child {
+    margin-left: 0;
+  }
+
+  .music-note-featured {
+    width: 98%;
+    margin-left: 0;
+  }
+
+  .music-note:nth-child(2),
+  .music-note:nth-child(4),
+  .music-note:nth-child(5) {
+    width: 100%;
+  }
+
+  .music-note:nth-child(5) {
+    margin-top: 18px;
+  }
+
+  .music-note-now {
+    margin-right: 0;
+  }
+
+  .music-note p {
+    font-size: .93rem;
+    line-height: 1.75;
+  }
+}
+
+/* Телефоны: страницы идут одна за другой */
+@media (max-width: 600px) {
+  .music-history-section {
+    padding-top: 38px;
+    padding-bottom: 42px;
+  }
+
+  .music-history-section .section-heading {
+    margin-bottom: 25px;
+  }
+
+  .music-history-section .section-heading::after {
+    margin-top: 10px;
+    font-size: 21px;
+  }
+
+  .music-intro {
+    font-size: .94rem;
+    line-height: 1.75;
+  }
+
+  .music-timeline {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 23px;
+    margin-top: 30px;
+    padding-left: 5px;
+  }
+
+  .music-note,
+  .music-note:nth-child(even),
+  .music-note-wide,
+  .music-note:first-child,
+  .music-note:nth-child(2),
+  .music-note:nth-child(4),
+  .music-note:nth-child(5),
+  .music-note-featured,
+  .music-note-now {
+    grid-column: 1;
+    width: calc(100% - 7px);
+    justify-self: end;
+    margin: 0;
+    padding: 25px 18px 23px;
+    transform: rotate(-.35deg);
+  }
+
+  .music-note:nth-child(even),
+  .music-note:nth-child(5) {
+    transform: rotate(.45deg);
+  }
+
+  .music-note-featured {
+    padding: 30px 19px 25px;
+  }
+
+  .music-note-now {
+    padding-top: 29px;
+  }
+
+  .music-note h3 {
+    font-size: 1.28rem;
+  }
+
+  .music-note-featured h3 {
+    font-size: 1.55rem;
+  }
+
+  .music-note p {
+    font-size: .92rem;
+    line-height: 1.75;
+  }
+
+  .music-note::after {
+    left: 9px;
+    top: 10px;
+    bottom: 10px;
+  }
+
+  .music-tape {
+    right: 18px;
+    width: 49px;
+    height: 17px;
+  }
+
+  .music-note:nth-child(even) .music-tape {
+    left: 20px;
+  }
+
+  .music-note-featured .music-tape {
+    right: 42px;
+    width: 61px;
+    height: 19px;
+  }
+
+  .music-note:first-child::before {
+    right: 13px;
+    bottom: 8px;
+    font-size: 10px;
+  }
+
+  .music-note-featured::before {
+    top: 10px;
+    right: 14px;
+    font-size: 24px;
+  }
+
+  .music-note-now::before {
+    right: 13px;
+    top: -17px;
+    font-size: 11px;
+  }
+
+  .music-age {
+    font-size: .71rem;
+    margin-bottom: 12px;
+  }
+
+  .music-margin-note,
+  .music-note-featured .music-margin-note {
+    margin-top: 15px;
+    margin-right: 0;
+    font-size: .82rem;
+  }
+
+  .music-footnote {
+    margin-top: 26px;
+    font-size: .84rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .music-note,
+  .music-note:nth-child(even),
+  .music-note-wide,
+  .music-note:first-child,
+  .music-note:nth-child(2),
+  .music-note:nth-child(4),
+  .music-note:nth-child(5),
+  .music-note-featured,
+  .music-note-now {
+    padding-left: 15px;
+    padding-right: 14px;
+  }
+
+  .music-note h3 {
+    font-size: 1.17rem;
+  }
+
+  .music-note-featured h3 {
+    font-size: 1.4rem;
+  }
+
+  .music-note p {
+    font-size: .89rem;
+  }
+}
+
+/* Уважение к настройке уменьшения анимации */
+@media (prefers-reduced-motion: reduce) {
+  .music-history-section *,
+  .music-history-section *::before,
+  .music-history-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
