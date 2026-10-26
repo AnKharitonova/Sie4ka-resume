@@ -324,116 +324,23 @@
 @media(max-width:850px){.world-layout{grid-template-columns:1fr}.world-values{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.world-value{grid-template-columns:1fr;padding:15px}.world-value h3{font-size:16px}}
 @media(max-width:560px){.world-values{grid-template-columns:1fr}.world-value{grid-template-columns:38px 1fr;padding:15px}.world-photo-grid{gap:10px}.world-photo{padding:5px 5px 8px}.world-photo img{height:190px}.world-photo figcaption{font-size:11px}.world-photo:nth-child(2){margin-top:15px}}
 
+/* Музыкальная история — разворот скетчбука */
+.music-history-section{position:relative;isolation:isolate}
+.music-intro{max-width:680px;color:var(--muted,#6f7166);line-height:1.7}
+.music-timeline{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,2.2vw,26px);align-items:start;margin-top:clamp(22px,4vw,42px)}
+.music-timeline:before{content:"";position:absolute;left:50%;top:8px;bottom:8px;border-left:2px dashed rgba(131,145,113,.35);z-index:-1}
+.music-note{position:relative;min-width:0;padding:clamp(17px,2.5vw,27px);background:rgba(255,253,244,.88);border:1px solid rgba(151,133,98,.28);border-radius:5px 13px 6px 12px;box-shadow:3px 5px 0 rgba(128,112,81,.08),inset 0 0 0 4px rgba(255,255,255,.4);transform:rotate(-.35deg)}
+.music-note:nth-child(even){transform:rotate(.45deg);background:rgba(250,248,235,.94)}
+.music-note-wide{grid-column:1/-1;width:min(100%,820px);justify-self:center}
+.music-note-featured{border-color:rgba(188,123,99,.45);background:rgba(255,247,236,.94)}
+.music-note-now{background:rgba(242,246,232,.92)}
+.music-age{display:inline-block;max-width:100%;font-size:.76rem;letter-spacing:.04em;color:#7d8069;background:#e9ebd9;padding:5px 10px;border-radius:3px 8px 4px 7px;margin-bottom:12px}
+.music-note h3{font-family:var(--heading-font,Georgia,serif);font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.2;margin:0 0 10px;color:var(--ink,#34372f)}
+.music-note p{font-size:clamp(.91rem,1.25vw,1rem);line-height:1.75;margin:0 0 10px;overflow-wrap:anywhere}
+.music-note p:last-of-type{margin-bottom:0}
+.music-tape{position:absolute;top:-7px;right:22px;width:58px;height:15px;background:rgba(219,184,139,.45);transform:rotate(3deg);border-left:1px dashed rgba(143,111,78,.22);border-right:1px dashed rgba(143,111,78,.22)}
+.music-margin-note{display:block;margin-top:14px;text-align:right;color:#a16e58;font-size:.83rem;font-style:italic}
+.music-footnote{font-size:.85rem;line-height:1.65;color:var(--muted,#6f7166);text-align:center;margin:22px auto 0;max-width:620px}
+@media(max-width:700px){.music-timeline{grid-template-columns:minmax(0,1fr);gap:16px;margin-top:22px}.music-timeline:before{left:10px;top:4px;bottom:4px}.music-note,.music-note:nth-child(even),.music-note-wide{grid-column:1;width:calc(100% - 14px);justify-self:end;transform:none;padding:17px 16px 18px}.music-note h3{font-size:1.2rem}.music-note p{font-size:.94rem;line-height:1.68}.music-tape{right:17px;width:46px}.music-age{font-size:.72rem}.music-margin-note{text-align:left}.music-intro{font-size:.95rem}}
+@media(max-width:380px){.music-note,.music-note:nth-child(even),.music-note-wide{padding:15px 13px}.music-note h3{font-size:1.1rem}.music-note p{font-size:.9rem}.music-tape{width:38px;right:12px}}
 
-
-/* Personal-world section: make it feel like pages from the same hand-drawn sketchbook */
-.personal-world{
-  padding:clamp(28px,4vw,54px);
-  background:
-    radial-gradient(ellipse at 8% 6%, #f4e6ed8c 0, transparent 24%),
-    radial-gradient(ellipse at 95% 92%, #e9efdf9c 0, transparent 25%),
-    repeating-linear-gradient(0deg, transparent 0 27px, #d9c9b51b 28px 29px),
-    #fbf6ed;
-  border:1px solid #e5d7c5;
-  border-radius:5px 18px 7px 20px;
-  box-shadow:4px 7px 0 #e8dccb66, 0 12px 30px #62513b0c;
-}
-.personal-world:before{
-  content:"✿";
-  position:absolute;top:13px;right:24px;
-  font-size:27px;color:#c78f9b;opacity:.8;
-  transform:rotate(12deg);pointer-events:none;
-}
-.personal-world:after{
-  content:"заметки на полях";
-  position:absolute;right:30px;top:48px;
-  font:italic 11px/1.2 'Playfair Display',Georgia,serif;
-  color:#a47f83;transform:rotate(4deg);pointer-events:none;
-}
-.personal-world .section-heading{position:relative;padding-right:95px}
-.world-value{
-  position:relative;border-style:dashed;border-radius:5px 15px 6px 14px;
-  box-shadow:2px 4px 0 #e6d8c6a3;
-}
-.world-value:nth-child(1){transform:rotate(-.35deg)}
-.world-value:nth-child(2){transform:rotate(.35deg)}
-.world-value:nth-child(3){transform:rotate(-.2deg)}
-.world-value:after{
-  content:"";position:absolute;top:-6px;left:22px;width:42px;height:12px;
-  background:#e7c6c8b8;transform:rotate(-4deg);border-radius:2px;
-}
-.world-value:nth-child(2):after{background:#e6d4a9c9;left:auto;right:25px;transform:rotate(3deg)}
-.world-value:nth-child(3):after{background:#cdd8bdc9;left:48%;transform:rotate(2deg)}
-.world-photo{
-  position:relative;border-radius:2px 3px 1px 4px;
-  box-shadow:3px 6px 0 #e5d7c5a8, 0 8px 20px #55453218;
-}
-.world-photo:before{
-  content:"";position:absolute;z-index:2;top:-7px;left:calc(50% - 24px);
-  width:48px;height:14px;background:#e9d4a6c9;transform:rotate(-3deg);
-}
-.world-photo:nth-child(2):before{background:#d9c9e6c9;transform:rotate(4deg)}
-.world-photo:nth-child(3):before{background:#d9e4cfcc;transform:rotate(-2deg)}
-.world-photo:nth-child(4):before{background:#e8c8c9cc;transform:rotate(3deg)}
-.world-photo:nth-child(5):before{background:#d9c9e6c9;transform:rotate(-4deg)}
-.world-photo img{border-radius:1px}
-.world-note{position:relative;display:table;margin:28px auto 0;padding:5px 14px 7px;border-bottom:1px dashed #caa4a2;transform:rotate(-1deg)}
-@media(max-width:560px){
-  .personal-world{padding:24px 16px 30px}
-  .personal-world:after{top:39px;right:15px;font-size:10px}
-  .personal-world .section-heading{padding-right:0}
-}
-
-/* Final responsive sketchbook treatment for the personal-world page */
-.personal-world.section-block{
-  width:min(1060px, calc(100% - 32px));
-  margin:28px auto 42px;
-  padding:clamp(22px,3.5vw,42px);
-  position:relative;
-  isolation:isolate;
-  background-color:#fbf6ed;
-  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent 29px,#d9c9b51c 30px),radial-gradient(circle at 8% 8%,#f4e3e8 0,transparent 24%),radial-gradient(circle at 94% 90%,#e6ecd9 0,transparent 25%);
-  border:1px solid #d9cbb8;
-  border-radius:4px 18px 6px 16px;
-  box-shadow:4px 5px 0 #e5d9c8a6, 0 12px 26px #6b58430b;
-}
-.personal-world .section-kicker{font-family:'DM Sans',sans-serif;letter-spacing:.09em;color:#a36e73}
-.personal-world .section-heading h2{font-family:'Playfair Display',Georgia,serif}
-.personal-world .world-intro{max-width:650px;font-size:15px;line-height:1.75}
-.personal-world .world-layout{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:clamp(18px,3vw,30px)}
-.personal-world .world-value{min-width:0;background:#fffaf3e8;border:1px dashed #d8c8b6;border-radius:5px 13px 5px 12px;box-shadow:2px 3px 0 #e8ddce;}
-.personal-world .world-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 13px;min-width:0;align-items:start}
-.personal-world .world-photo{min-width:0;width:100%;padding:6px 6px 8px;background:#fffdf8;border:1px solid #e0d4c3;border-radius:2px;box-shadow:3px 4px 0 #e5d8c7a8,0 5px 12px #5b49350d}
-.personal-world .world-photo img{width:100%;height:clamp(125px,15vw,190px);object-fit:cover;display:block}
-.personal-world .world-photo figcaption{font-size:clamp(10px,.9vw,12px);line-height:1.45;padding:7px 4px 1px;overflow-wrap:anywhere}
-.personal-world .world-note{font-size:14px}
-@media(max-width:850px){
- .personal-world.section-block{width:calc(100% - 28px);padding:25px 22px}
- .personal-world .world-layout{grid-template-columns:1fr;gap:20px}
- .personal-world .world-values{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
- .personal-world .world-value{grid-template-columns:1fr;padding:15px 12px}
- .personal-world .world-value h3{font-size:15px}
- .personal-world .world-value p{font-size:12px;line-height:1.6}
- .personal-world .world-photo img{height:clamp(130px,22vw,185px)}
-}
-@media(max-width:560px){
- .personal-world.section-block{width:calc(100% - 20px);margin:18px auto 28px;padding:24px 14px 22px;border-radius:4px 13px 5px 12px}
- .personal-world:before{top:8px;right:13px;font-size:22px}
- .personal-world:after{top:33px;right:12px;font-size:9px}
- .personal-world .section-heading{padding-right:0;margin-bottom:18px}
- .personal-world .section-heading h2{font-size:clamp(29px,8vw,36px);max-width:100%}
- .personal-world .world-intro{font-size:13px;line-height:1.65;margin-top:10px}
- .personal-world .world-values{grid-template-columns:1fr;gap:11px}
- .personal-world .world-value{grid-template-columns:34px minmax(0,1fr);gap:10px;padding:13px 12px}
- .personal-world .world-icon{width:31px;height:31px;font-size:18px}
- .personal-world .world-value h3{font-size:16px;margin:1px 0 5px}
- .personal-world .world-value p{font-size:12px}
- .personal-world .world-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .personal-world .world-photo{padding:4px 4px 6px}
- .personal-world .world-photo img{height:clamp(100px,32vw,145px);object-fit:cover}
- .personal-world .world-photo figcaption{font-size:10px;line-height:1.4;padding:6px 3px 0}
- .personal-world .world-photo:nth-child(n){margin-top:0}
- .personal-world .world-photo:nth-child(2n){transform:rotate(1deg)}
- .personal-world .world-photo:nth-child(2n+1){transform:rotate(-.8deg)}
- .personal-world .world-note{font-size:12px;margin-top:20px;padding:4px 8px}
-}
